@@ -12,6 +12,7 @@ export class HeaderComponent {
   faLogout = faSignOutAlt;
   constructor(private auth: AuthService) {}
 
+  // Logout Function for redirect to login page
   logout(): void {
     this.auth.logout();
   }

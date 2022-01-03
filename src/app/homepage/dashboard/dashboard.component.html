@@ -1,24 +1,25 @@
+<!-- Header Section -->
 <app-header></app-header>
-
 <br>
+
+<!-- Chart & Add Employee Section -->
 <div class="container">
   <div class="chart-wrapper">
-    <canvas baseChart 
-    [datasets]="barChartData"
-    [labels]="barChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"   >
-  </canvas>
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+      [plugins]="barChartPlugins" [legend]="barChartLegend">
+    </canvas>
   </div>
- 
-  <button type="button" id="addEmpbtn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
-    (click)="clickAddEmp()" >
-     <!-- <fa-icon [icon]="faUser" class="fa-1x"></fa-icon> -->
-      Add Employee </button><br><br><br>  
-</div>
-<br><br><hr>
 
+  <button type="button" id="addEmpbtn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click)="clickAddEmp()">
+    <fa-icon [icon]="faUser" class="fa-1x"></fa-icon>
+    Add Employee
+  </button><br><br><br>
+</div>
+<br><br>
+<hr>
+
+<!-- Employee List Details -->
 <h1> Employee List</h1>
 <ngx-datatable #table class="material striped" [rows]="empData" [columns]="columns" [headerHeight]="50"
   [columnMode]="'force'" [footerHeight]="50" [rowHeight]="50" [summaryRow]="true" [summaryHeight]="5" [limit]="10">
@@ -40,17 +41,14 @@
         </button>
         <button class="btn tblActnBtn h-auto" title="Delete" (click)='deleteEmp(row)'>
           <i class="material-icons">delete</i>
-        </button>       
+        </button>
       </span>
     </ng-template>
   </ngx-datatable-column>
 </ngx-datatable>
 
 
-
-
-
-<!-- Modal -->
+<!-- Modal for Add & Edit Employee -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private router: Router, private auth: AuthService) {}
   canActivate(): boolean {
+    // if manager on dashboard then he/she will not go to login page using url.. if want to go on login/signup need to logout first.
     if (!this.auth.isLoggedIn()) {
       this.router.navigate(['/login']);
       this.router.navigate(['/signup']);

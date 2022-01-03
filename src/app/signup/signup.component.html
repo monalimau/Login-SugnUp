@@ -12,6 +12,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please Sign Up
             Here&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
   
+            <!-- Sign up form -->
           <form [formGroup]="signupForm" (ngSubmit)="signup()">
             <div class="form-row">
               <div class="col-xl-6 col-lg-4 col-md-12 col-sm-12 mb-2">
@@ -64,6 +65,7 @@
               <input type="submit" class="btn btn-primary w-100" value="SignUp" [disabled]="!signupForm.valid" name="">
             </div>
           </form>
+          <!-- Link for login page -->
           <a routerLink="/login">Already Registered? Click to Login...!!</a>
         </div>
       </div>

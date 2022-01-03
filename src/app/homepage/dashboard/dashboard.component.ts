@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component'
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { EmpModel } from './emp.model';
@@ -9,9 +8,7 @@ import { CommonService } from 'src/app/services/common.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { DatePipe } from '@angular/common';
-
-
-import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
+import { ChartOptions, ChartType } from 'chart.js';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -30,7 +27,6 @@ export class DashboardComponent implements OnInit {
   btnValue = 'Submit';
   submitted = false;
 
-
   managerData!:any;
   managerDataLength!:any;
   empDataLength!:any;
@@ -43,8 +39,8 @@ export class DashboardComponent implements OnInit {
   barChartLegend = true;
   barChartPlugins = []; 
   barChartData!: any[] 
+  date: any;
 
-  
   columns = [
     { name: 'ID' },
     { name: 'First Name' },
@@ -58,11 +54,10 @@ export class DashboardComponent implements OnInit {
   constructor(private fb: FormBuilder, private api: CommonService, public datepipe: DatePipe,
     private auth: AuthService, private router: Router, private managerApi: ApiService) { }
 
-  date: any;
+  
   ngOnInit(): void {
     if (!this.auth.isLoggedIn()) {
       this.router.navigate(['/login']);
-      this.router.navigate(['/signup']);
     }
     this.formValue = this.fb.group({
       firstName: ['', Validators.required],
@@ -75,6 +70,7 @@ export class DashboardComponent implements OnInit {
     this.getEmployeeList()
   }
 
+  // Get Employee Details and Display to Dashboard
   getEmployeeList() {
     this.managerApi.getManager().subscribe(res => { 
       this.managerDataLength = res.length  ;       
@@ -92,12 +88,14 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  // Function for Add & Update toggle form
   clickAddEmp() {
     this.formValue.reset();
     this.showAdd = true;
     this.showUpdate = false;
   }
 
+  //  Choice for update and new entry on submit
   onSubmit() {
     this.submitted = true;
     if (this.btnValue != 'Submit') {
@@ -108,6 +106,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  // Add new Employee
   addEmp() {
     this.btnValue = 'Submit';
     this.empObj.firstName = this.formValue.value.firstName;
@@ -131,6 +130,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  // Edit Employee
   editEmp(row: any) {
     this.showAdd = false;
     this.showUpdate = true;
@@ -145,6 +145,7 @@ export class DashboardComponent implements OnInit {
     this.formValue.controls['city'].setValue(row.city)
   }
 
+  // Update Employee
   updateEmp() {
     this.submitted = true;
     this.empObj.firstName = this.formValue.value.firstName;
@@ -169,6 +170,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  // Delete Employee
   deleteEmp(row: any) {
     this.api.deleteEmployee(row.id).subscribe(res => {
       Swal.fire({

@@ -33,6 +33,7 @@ export class SignupComponent implements OnInit {
   }
   private isAdmin = false;
 
+  // Check Manager email id, which is already present or not, if yes display wrong msg otherwise add into manager database
   signup(): void {
     this.api.getManager().subscribe((result) => {
       for (var i = 0; i < result.length; i++) {

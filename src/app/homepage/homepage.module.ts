@@ -13,7 +13,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgChartsModule } from 'ng2-charts';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -30,7 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatFormFieldModule,
     MatIconModule,
     MatSortModule,
-    NgxDatatableModule, NgChartsModule
+    NgxDatatableModule, NgChartsModule, FontAwesomeModule 
+
   ],
   declarations: [   
     HeaderComponent,

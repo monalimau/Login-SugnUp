@@ -7,10 +7,10 @@ import { DashboardComponent } from '../../src/app/homepage/dashboard/dashboard.c
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-{ path: 'login', component: LoginComponent },
-{ path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
 
-{ path: 'dashboard',  component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({

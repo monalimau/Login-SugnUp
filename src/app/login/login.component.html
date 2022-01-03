@@ -11,6 +11,8 @@
                 <p style="color: lightslategray; text-align: center;">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your login
                     details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+                    <!-- Login Form -->
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <input type="text" id="email" placeholder="Email" class="form-control" formControlName="email"
@@ -22,6 +24,7 @@
                     </div>
                     <input type="submit" class="btn btn-primary w-100" value="Login" name="">
                 </form><br>
+                <!-- Link for signup -->
                 <a routerLink="/signup">New User? Click to Signup...!!</a>
             </div>
            

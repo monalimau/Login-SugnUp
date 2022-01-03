@@ -22,6 +22,7 @@ export class AuthService {
     return this.userSubject.value;
   }
 
+  // login details match with database
   login({ email, password }: any) {
     return this.http.get<any>(this.api)
         .pipe(map((res: any) => {
@@ -29,18 +30,22 @@ export class AuthService {
       }))   
   }
 
+  // set token
   setToken(token: string): void {
     localStorage.setItem('token', token);
   }
 
+  // get token
   getToken(): string | null {
     return localStorage.getItem('token');
   }
   
+  // check manager is logged in with token or not
   isLoggedIn() {
     return this.getToken() !== null;
   }
 
+  // logout for redirect to login page from dashboard
   logout() {
     localStorage.removeItem('token');  
     this.router.navigate(['login']);
