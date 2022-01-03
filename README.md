@@ -45,11 +45,19 @@ ng generate guard auth
 
 
 -- To add and install packages
+npm install @angular/cli
 ng add @fortawesome/angular-fontawesome
 ng add @angular/material
 npm install @swimlane/ngx-datatable
 npm install sweetalert2
 npm install ng2-charts chart.js --save 
+
+-- Running Process:
+## For http://localhost:4200/
+npm start or ng serve
+
+## For http://localhost:3000/
+json-server --watch db.json
 
 -->
 
