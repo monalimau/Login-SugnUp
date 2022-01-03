@@ -25,3 +25,31 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<!-- ********************************************************************************************************************************************************************** -->
+<!-- 
+-- To create main Project 
+ng new task
+
+-- To create Modules, Components and Services
+ng generate component login
+ng generate component signup
+
+-- ng generate module homepage --routing
+ng generate component dashboard
+ng generate component header
+
+-- ng g s common
+ng generate service api
+ng generate service auth
+ng generate guard auth
+
+
+-- To add and install packages
+ng add @fortawesome/angular-fontawesome
+ng add @angular/material
+npm install @swimlane/ngx-datatable
+npm install sweetalert2
+npm install ng2-charts chart.js --save 
+
+-->
+
